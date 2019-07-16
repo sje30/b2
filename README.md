@@ -1,7 +1,7 @@
 # Code and data for B2 paper
 
-This repository accompanies the manuscript `Measuring `and Modelling
-the Emergence of Order in the Mouse Retinocollicular Projection'.
+This repository accompanies the manuscript `Measuring and Modelling
+the Emergence of Order in the Mouse Retinocollicular Projection`.
 
 ## Simulation code
 
@@ -14,6 +14,6 @@ refolding flattened retinae.
 ## Experimental data
 
 
-[data] contains the experimental datasests analysed here.
+[data](data) contains the experimental datasests analysed here.
 
 
