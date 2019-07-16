@@ -1,0 +1,185 @@
+Programs for retinal analysis with overview, contours and nearest neighbour
+
+/media/psf/Home/Documents/KCL/PhD/programs/SYSTATDS/DUMPRET.CMD
+----------ASCII NAYBUR----------
+data
+use "Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sys.sys" (xred, yred, xgreen, ygreen, xdouble, ydouble)
+save sysxy
+run
+use sysxy
+export "Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\GMB526.por" / type=portable
+use sysxy
+export "U:\programs\NAYBUR\data\GMB526.por" / type=portable
+
+use "Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sys.sys"
+save sysxy
+run
+use sysxy
+export "Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\GMB526.txt" / type=portable
+
+
+----------RETLOOK----------
+graph
+use 'Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sys.sys'
+
+plot yred*xred/, symbol='.', xmax=7000, xmin=-3000, ymin=-3000, ymax=7000, color=red, axes=2, scale=2, xlabel='', ylabel=''
+plot ygreen*xgreen/, symbol='.', xmax=7000, xmin=-3000, ymin=-3000, ymax=7000, color=green, axes=2, scale=2, xlabel='', ylabel=' '
+
+thick=2
+map/xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+end
+
+
+ 
+
+----------MODIFY RED----------
+data
+use "Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sys.sys"
+
+if case>5 and case<606 then let xred = xred + 1240
+if case>5 and case<606 then let yred = yred + 3720
+
+save "Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sysmod.sys" / double
+
+run
+use 'Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+----------MODIFY GREEN----------
+data
+use "Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sys.sys"
+
+
+if case>478 and case<1079 then let xgreen = xgreen -465
+if case>478 and case<1079 then let ygreen = ygreen - 1790
+
+save "Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sysmod.sys" / double
+
+run
+use 'Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+
+
+----------MODIFY RED & GREEN----------
+data
+use "Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sys.sys"
+
+if case>10 and case<611 then let xred = xred + 155
+if case>10 and case<611 then let xdouble = xdouble + 155
+if case>10 and case<611 then let yred = yred - 1085
+if case>10 and case<611 then let ydouble = ydouble - 1085
+
+if case>950 and case<1551 then let xgreen = xgreen - 465
+if case>950 and case<1551 then let ygreen = ygreen - 465
+
+save "Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sysmod.sys" / double
+
+run
+use 'Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+
+----------cONTOUR GRID RED----------
+
+graph
+Use 'Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+thick=1
+
+
+color graph=brown
+plot totalred*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=22, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+color graph=red
+plot totalred*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=22, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+plot yred*xred / , symbol='.', colour=red, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+end
+
+
+----------cONTOUR GRID GREEN----------
+
+graph
+Use 'Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+thick=1
+
+color graph=brown
+plot totalgre*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=20, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+color graph=green
+plot totalgre*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=20, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+plot ygreen*xgreen / , symbol='.', colour=green, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+end
+
+
+----------cONTOUR XY GREEN----------
+
+data
+edit
+use 'Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sys.sys'
+
+graph
+
+
+thick=2
+map / , xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+
+thick=1
+plot ygreen*xgreen /, smooth=kernel, contour, ztick=10, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+
+
+plot ygreen*xgreen /, smooth=kernel, contour, color , ztick=10, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+
+
+plot ygreen*xgreen /, symbol='.', color=green, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+
+end
+
+----------cONTOUR XY RED----------
+graph
+use 'Y:\Share\Data\Anatomy\SC\beads\data\toredo\P4\M661-6\R-CONTRA\sys.sys'
+BEGIN
+
+thick=2
+map / , xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+
+thick=1
+plot yred*xred /, smooth=kernel, contour, ztick=10, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+
+
+plot yred*xred /, smooth=kernel, contour, color , ztick=10, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+
+
+plot yred*xred /, symbol='.', color=red, xmax=7000, xmin=-3000, ymin=-3000, ymax=7000
+
+end

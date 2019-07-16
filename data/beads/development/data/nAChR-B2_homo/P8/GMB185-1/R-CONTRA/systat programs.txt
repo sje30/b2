@@ -1,0 +1,84 @@
+Programs for retinal analysis with overview, contours and nearest neighbour
+
+
+----------ASCII NAYBUR----------
+
+use "c:\data-new\beta2\GMB185-1\R-CONTRA\sys.sys" (xred, yred, xgreen, ygreen, xdouble, ydouble)
+save sysxy
+run
+use sysxy
+export "c:\data-new\beta2\GMB185-1\R-CONTRA\GMB185-1.por" / type=portable
+use sysxy
+export "C:\progs\naybur\alu\GMB185-1.por" / type=portable
+
+----------RETLOOK----------
+graph
+use 'c:\data-new\beta2\GMB185-1\R-CONTRA\sys.sys'
+
+plot yred*xred/, symbol='.', xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, color=red, axes=2, scale=2, xlabel='', ylabel=''
+plot ygreen*xgreen/, symbol='.', xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, color=green, axes=2, scale=2, xlabel='', ylabel=' '
+
+thick=2
+map/xmax=5000, xmin=-5000, ymin=-5000, ymax=5000
+end
+
+
+ 
+----------DELETE CELLS----------
+data
+
+use "c:\data-new\beta2\GMB185-1\R-CONTRA\sys.sys"
+save "c:\data-new\beta2\GMB185-1\R-CONTRA\sys2.sys"
+
+if case>605 and case<1206 then delete
+
+run
+
+save
+
+
+
+
+----------CONTOUR GREEN----------
+
+graph
+Use 'c:\data-new\beta2\GMB185-1\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=5000, xmin=-5000, ymin=-5000, ymax=5000
+thick=1
+
+
+thick=1
+color graph=brown
+plot totalgre*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=28, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+color graph=red
+plot totalgre*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=28, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+plot ygreen*xgreen / , symbol='.', colour=green, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+end
+
+
+
+----------cONTOUR RED----------
+
+graph
+Use 'c:\data-new\beta2\GMB185-1\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=5000, xmin=-5000, ymin=-5000, ymax=5000
+thick=1
+
+
+color graph=brown
+plot totalred*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=22, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+color graph=green
+plot totalred*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=22, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+plot yred*xred / , symbol='.', colour=red, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+end
+

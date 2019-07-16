@@ -1,0 +1,158 @@
+Programs for retinal analysis with overview, contours and nearest neighbour
+
+
+----------ASCII NAYBUR----------
+data
+use "Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sys.sys" (xred, yred, xgreen, ygreen, xdouble, ydouble)
+save sysxy
+run
+use sysxy
+export "Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\gmb389-2.por" / type=portable
+use sysxy
+export "Z:\programs\NAYBUR\data\gmb389-2.por" / type=portable
+
+use "Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sys.sys"
+save sysxy
+run
+use sysxy
+export "Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\gmb389-2.txt" / type=portable
+
+
+----------RETLOOK----------
+graph
+use 'Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sys.sys'
+
+plot yred*xred/, symbol='.', xmax=5000, xmin=-5000, ymin=-3000, ymax=7000, color=red, axes=2, scale=2, xlabel='', ylabel=''
+plot ygreen*xgreen/, symbol='.', xmax=5000, xmin=-5000, ymin=-3000, ymax=7000, color=green, axes=2, scale=2, xlabel='', ylabel=' '
+
+thick=2
+map/xmax=5000, xmin=-5000, ymin=-3000, ymax=7000
+end
+
+
+ 
+
+----------MODIFY RED----------
+data
+use "Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sys.sys"
+
+if case>5 and case<606 then let xred = xred - 930
+if case>5 and case<606 then let xdouble = xdouble - 930
+
+if case>5 and case<606 then let yred = yred - 775
+if case>5 and case<606 then let ydouble = ydouble - 775
+
+save "Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sysmod.sys" / double
+
+run
+use 'Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+----------MODIFY GREEN----------
+data
+use "Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sys.sys"
+
+
+if case>255 and case<856 then let xgreen = xgreen - 1305
+if case>255 and case<856 then let ygreen = ygreen + 580
+
+if case>855 and case<1456 then let xgreen = xgreen + 2320
+if case>855 and case<1456 then let ygreen = ygreen + 2175
+
+if case>1455 and case<2056 then let xgreen = xgreen + 0
+if case>1455 and case<2056 then let ygreen = ygreen + 2175
+
+
+save "Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sysmod.sys" / double
+
+run
+use 'Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+
+
+----------MODIFY RED & GREEN----------
+data
+use "Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sys.sys"
+
+if case>5 and case<606 then let xred = xred + 1885
+if case>5 and case<606 then let xdouble = xdouble + 1885
+if case>5 and case<606 then let yred = yred + 3625
+if case>5 and case<606 then let ydouble = ydouble + 3625
+
+
+if case>740 and case<1341 then let xgreen = xgreen + 1595
+if case>740 and case<1341 then let ygreen = ygreen + 1885
+
+if case>1340 and case<1941 then let xgreen = xgreen + 580
+if case>1340 and case<1941 then let ygreen = ygreen + 725
+
+
+save "Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sysmod.sys" / double
+
+run
+use 'Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+
+----------cONTOUR RED----------
+
+graph
+Use 'Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=5000, xmin=-5000, ymin=-3000, ymax=7000
+thick=1
+
+
+color graph=brown
+plot totalred*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=6, xmax=5000, xmin=-5000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+color graph=red
+plot totalred*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=6, xmax=5000, xmin=-5000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+plot yred*xred / , symbol='.', colour=red, xmax=5000, xmin=-5000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+end
+
+
+----------cONTOUR GREEN----------
+
+graph
+Use 'Z:\Anatomy\SC\beads\data\todo\gmb389-2\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=5000, xmin=-5000, ymin=-3000, ymax=7000
+thick=1
+
+
+color graph=brown
+plot totalgre*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=16, xmax=5000, xmin=-5000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+color graph=green
+plot totalgre*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=16, xmax=5000, xmin=-5000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+plot ygreen*xgreen / , symbol='.', colour=green, xmax=5000, xmin=-5000, ymin=-3000, ymax=7000, xlabel=' ', ylabel=' '
+
+end

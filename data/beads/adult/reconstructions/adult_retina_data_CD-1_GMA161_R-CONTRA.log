@@ -1,0 +1,99 @@
+[1] "Adding old segment 1"
+[1] "Adding old segment 2"
+[1] "Adding old segment 5"
+[1] "Adding old segment 4"
+[1] "Adding old segment 3"
+[1] "Intersection found. Old points:"
+    X     Y 
+-3280   249 
+    X     Y 
+-3020   149 
+    X     Y 
+-3020   149 
+    X     Y 
+-2580    19 
+[1] "Point i+1 has been changed:"
+    X     Y 
+-3280   249 
+    X     Y 
+-3020   149 
+    X     Y 
+-3020   149 
+    X     Y 
+-2580    19 
+[1] "a= 0.108979285006693"
+[1] "l= 458.802789878178"
+[1] "New points:"
+    X     Y 
+-3280   249 
+    X     Y 
+-3020   149 
+          X           Y 
+-2627.95089    33.16731 
+    X     Y 
+-2580    19 
+[1] "Storing new segment 1"
+[1] "Adding old segment 6"
+[1] "Adding old segment 7"
+[1] "Adding old segment 9"
+[1] "Adding old segment 8"
+[1] "Intersection found. Old points:"
+    X     Y 
+-9080 -1081 
+     X      Y 
+-10020  -1881 
+    X     Y 
+-9980 -1881 
+     X      Y 
+-10020  -1851 
+[1] "Point i+1 has been changed:"
+    X     Y 
+-9080 -1081 
+         X          Y 
+-10001.262  -1865.053 
+    X     Y 
+-9980 -1881 
+     X      Y 
+-10020  -1851 
+[1] "a= 0.5"
+[1] "l= 23.4219269102769"
+[1] "New points:"
+    X     Y 
+-9080 -1081 
+         X          Y 
+-10001.262  -1865.053 
+         X          Y 
+-10010.631  -1858.027 
+     X      Y 
+-10020  -1851 
+[1] "Intersection found. Old points:"
+    X     Y 
+-5920 -2581 
+    X     Y 
+-5950 -2481 
+    X     Y 
+-5950 -2481 
+    X     Y 
+-6120 -2251 
+[1] "Point i+1 has been changed:"
+    X     Y 
+-5920 -2581 
+    X     Y 
+-5950 -2481 
+    X     Y 
+-5950 -2481 
+    X     Y 
+-6120 -2251 
+[1] "a= 0.174820900318766"
+[1] "l= 286.006992921502"
+[1] "New points:"
+    X     Y 
+-5920 -2581 
+    X     Y 
+-5950 -2481 
+        X         Y 
+-6090.280 -2291.209 
+    X     Y 
+-6120 -2251 
+[1] "Storing new segment 2"
+simplify.outline: Removing vertex 50

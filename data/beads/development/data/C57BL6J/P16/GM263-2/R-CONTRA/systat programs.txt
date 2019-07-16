@@ -1,0 +1,150 @@
+Programs for retinal analysis with overview, contours and nearest neighbour
+
+
+----------ASCII NAYBUR----------
+data
+use "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys.sys" (xred, yred, xgreen, ygreen, xdouble, ydouble)
+save sysxy
+run
+use sysxy
+export "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\gm263-2.por" / type=portable
+use sysxy
+export "C:\progs\naybur\alu\gm263-2.por" / type=portable
+
+----------RETLOOK----------
+
+graph
+use 'Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys.sys'
+
+plot yred*xred/, symbol='.', xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, color=red, axes=2, scale=2, xlabel='', ylabel=''
+plot ygreen*xgreen/, symbol='.', xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, color=green, axes=2, scale=2, xlabel='', ylabel=' '
+
+thick=2
+map/xmax=5000, xmin=-5000, ymin=-5000, ymax=5000
+end
+
+
+----------MODIFY RED & GREEN----------
+
+
+data
+use "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys.sys"
+
+
+if case>4 and case<605 then let xred = xred - 0
+if case>4 and case<605 then let xdouble = xdouble - 0
+
+if case>4 and case<605 then let yred = yred - 280
+if case>4 and case<605 then let ydouble = ydouble - 280
+
+
+if case>604 and case<1205 then let xred = xred - 0
+if case>604 and case<1205 then let xdouble = xdouble - 0
+
+if case>605 and case<1206 then let yred = yred + 1680
+if case>605 and case<1206 then let ydouble = ydouble + 1680
+
+
+if case>1743 and case<2344 then let xgreen = xgreen - 0
+if case>1743 and case<2344 then let ygreen = ygreen - 0
+
+save "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sysmod.sys" / double
+
+run
+use 'Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+----------CONTOUR GREEN----------
+
+
+graph
+Use 'Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=5000, xmin=-5000, ymin=-5000, ymax=5000
+thick=1
+
+
+thick=1
+color graph=brown
+plot totalgre*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=74, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+color graph=red
+plot totalgre*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=74, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+plot ygreen*xgreen / , symbol='.', colour=green, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+end
+
+
+----------cONTOUR RED----------
+
+graph
+Use 'Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=5000, xmin=-5000, ymin=-5000, ymax=5000
+thick=1
+
+
+thick=1
+color graph=brown
+plot totalred*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=45, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+color graph=green
+plot totalred*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=45, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+plot yred*xred / , symbol='.', colour=red, xmax=5000, xmin=-5000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+
+end
+
+
+
+----------SPLIT LARGE FILES FOR NAY----------
+
+data
+
+use "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys.sys"
+if case>4 and case<700 then delete
+if case>1660 and case<1869 then delete
+
+save "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys2.sys" / double
+run
+
+data
+
+use "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys.sys"
+if case>699 and case<1661 then delete
+if case>1868 and case<2076 then delete
+
+save "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys1.sys" / double
+run
+
+
+
+
+use "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys1.sys" (xred, yred, xgreen, ygreen, xdouble, ydouble)
+save sysxy
+run
+use sysxy
+export "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\gm263-21.por" / type=portable
+use sysxy
+export "C:\progs\naybur\alu\gm263-21.por" / type=portable
+
+
+data
+use "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\sys2.sys" (xred, yred, xgreen, ygreen, xdouble, ydouble)
+save sysxy
+run
+use sysxy
+export "Z:\KCL\PhD\Anatomy\SC\beads\data\C57BL6\data-kcl\p16\gm263-2\R-CONTRA\gm263-22.por" / type=portable
+use sysxy
+export "C:\progs\naybur\alu\gm263-22.por" / type=portable

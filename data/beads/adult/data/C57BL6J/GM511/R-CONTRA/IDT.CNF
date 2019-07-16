@@ -1,0 +1,100 @@
+# Configuration data file for computer microscope
+# Code for mouse (m=com1,n=com2,b=bus,p=MS com1,q=MS com2,d=driver), code for printer (1=epson 60dpi,2=120dpi,3=laserjet 75dpi,4=150dpi,5=300dpi)
+d 3
+# Level of analysis
+2
+# File identification
+idt
+# Define the classes of cells analysed
+# First the number then ident and colour for each
+2
+Rhodamine
+12
+Fluoroscein
+10
+# Sample box size in microns
+200
+# Sample grid spacing in microns
+200
+# Objectives used in this analysis
+# First the number then an index for each
+2
+1
+6
+# Units for scaling
+micron
+# Left graticule point
+181
+# Right graticule point
+321
+# Reference set of objectives
+# Each defined by : 
+#    label, magnification, scale bar, linear scale
+#    area scale, X and Y screen calibration 
+8
+# Reference objective 1
+Plan 2.5
+ 1.0000000000E+00
+1000
+ 7.1428571429E+00
+ 5.1020408163E+01
+ 1.4000000000E+01
+ 1.5000000000E+01
+# Reference objective 2
+Planapo 4
+ 1.6000000000E+00
+1000
+ 3.8461538462E+00
+ 1.4792899408E+01
+ 0.0000000000E+00
+ 0.0000000000E+00
+# Reference objective 3
+NeoFluar 6.3
+ 2.5300000000E+00
+100
+ 2.3480793000E+00
+ 5.5134763000E+00
+ 0.0000000000E+00
+ 0.0000000000E+00
+# Reference objective 4
+NeoFluar 10
+ 4.0000000000E+00
+100
+ 3.8461538462E-01
+ 1.4792899408E-01
+ 0.0000000000E+00
+ 0.0000000000E+00
+# Reference objective 5
+Plan 16
+ 6.4000000000E+00
+200
+ 9.9502487562E-01
+ 9.9007450310E-01
+ 0.0000000000E+00
+ 0.0000000000E+00
+# Reference objective 6
+Planapo 25
+ 1.0000000000E+01
+200
+ 6.1919504644E-01
+ 3.8340250553E-01
+ 0.0000000000E+00
+ 0.0000000000E+00
+# Reference objective 7
+NeoFluor 40
+ 1.6000000000E+01
+100
+ 3.8461538462E-01
+ 1.4792899408E-01
+ 0.0000000000E+00
+ 0.0000000000E+00
+# Reference objective 8
+Planapo 63
+ 2.5200000000E+01
+100
+ 2.5252525253E-01
+ 6.3769003163E-02
+ 0.0000000000E+00
+ 0.0000000000E+00
+#    seperation value for dual label 
+20

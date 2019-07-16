@@ -1,0 +1,186 @@
+Programs for retinal analysis with overview, contours and nearest neighbour
+
+
+----------ASCII NAYBUR----------
+data
+use "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sys.sys" (xred, yred, xgreen, ygreen, xdouble, ydouble)
+save sysxy
+run
+use sysxy
+export "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\gmb425-2.por" / type=portable
+use sysxy
+export "U:\programs\NAYBUR\data\gmb425-2.por" / type=portable
+
+use "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sys.sys"
+save sysxy
+run
+use sysxy
+export "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\gmb425-2.txt" / type=portable
+
+
+----------RETLOOK----------
+graph
+use 'U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sys.sys'
+
+plot yred*xred/, symbol='.', xmax=5000, xmin=-5000, ymin=-1000, ymax=9000, color=red, axes=2, scale=2, xlabel='', ylabel=''
+plot ygreen*xgreen/, symbol='.', xmax=5000, xmin=-5000, ymin=-1000, ymax=9000, color=green, axes=2, scale=2, xlabel='', ylabel=' '
+
+thick=2
+map/xmax=5000, xmin=-5000, ymin=-1000, ymax=9000
+end
+
+----------DELETE CELLS----------
+
+data
+
+use "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sys.sys"
+
+if case>1804 and case<2405 then delete
+
+save "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sysmod.sys" / double
+
+run
+use 'U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sysmod.sys'
+
+graph
+BEGIN
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+----------MODIFY RED----------
+data
+use "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sys.sys"
+
+if case>5 and case<606 then let xred = xred - 930
+if case>5 and case<606 then let xdouble = xdouble - 930
+
+if case>5 and case<606 then let yred = yred - 775
+if case>5 and case<606 then let ydouble = ydouble - 775
+
+save "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sysmod.sys" / double
+
+run
+use 'U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+----------MODIFY GREEN----------
+data
+use "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sys.sys"
+
+
+if case>4 and case<605 then let xgreen = xgreen - 1450
+if case>4 and case<605 then let ygreen = ygreen + 3480
+
+if case>604 and case<1205 then let xgreen = xgreen - 1015
+if case>604 and case<1205 then let ygreen = ygreen + 2610
+
+if case>1204 and case<1805 then let xgreen = xgreen - 1450
+if case>1204 and case<1805 then let ygreen = ygreen + 1740
+
+if case>1804 and case<2405 then let xgreen = xgreen - 290
+if case>1804 and case<2405 then let ygreen = ygreen + 870
+
+if case>2404 and case<3005 then let xgreen = xgreen - 580
+if case>2404 and case<3005 then let ygreen = ygreen + 435
+
+
+save "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sysmod.sys" / double
+
+run
+use 'U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+
+
+----------MODIFY RED & GREEN----------
+data
+use "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sys.sys"
+
+if case>5 and case<606 then let xred = xred + 2175
+if case>5 and case<606 then let xdouble = xdouble + 2175
+if case>5 and case<606 then let yred = yred + 1305
+if case>5 and case<606 then let ydouble = ydouble + 1305
+
+if case>605 and case<1206 then let xred = xred - 870
+if case>605 and case<1206 then let xdouble = xdouble - 870
+if case>605 and case<1206 then let yred = yred - 580
+if case>605 and case<1206 then let ydouble = ydouble - 580
+
+
+if case>1245 and case<1846 then let xgreen = xgreen - 435
+if case>1245 and case<1846 then let ygreen = ygreen + 870
+
+if case>1845 and case<2446 then let xgreen = xgreen + 1885
+if case>1845 and case<2446 then let ygreen = ygreen - 145
+
+
+save "U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sysmod.sys" / double
+
+run
+use 'U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+
+----------cONTOUR RED----------
+
+graph
+Use 'U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=5000, xmin=-5000, ymin=-1000, ymax=9000
+thick=1
+
+
+color graph=brown
+plot totalred*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=26, xmax=5000, xmin=-5000, ymin=-1000, ymax=9000, xlabel=' ', ylabel=' '
+
+color graph=red
+plot totalred*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=26, xmax=5000, xmin=-5000, ymin=-1000, ymax=9000, xlabel=' ', ylabel=' '
+
+plot yred*xred / , symbol='.', colour=red, xmax=5000, xmin=-5000, ymin=-1000, ymax=9000, xlabel=' ', ylabel=' '
+
+end
+
+
+----------cONTOUR GREEN----------
+
+graph
+Use 'U:\Data\Anatomy\SC\beads\data\nAChR-B2\P4\gmb425-2\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=5000, xmin=-5000, ymin=-1000, ymax=9000
+thick=1
+
+
+color graph=brown
+plot totalgre*ygridcoo*xgridcoo / , contour, smooth=dwls, ztick=1, zmin=1, zmax=6, xmax=5000, xmin=-5000, ymin=-1000, ymax=9000, xlabel=' ', ylabel=' '
+
+color graph=green
+plot totalgre*ygridcoo*xgridcoo / , contour , colour , smooth=dwls, ztick=1, zmin=1, zmax=6, xmax=5000, xmin=-5000, ymin=-1000, ymax=9000, xlabel=' ', ylabel=' '
+
+plot ygreen*xgreen / , symbol='.', colour=green, xmax=5000, xmin=-5000, ymin=-1000, ymax=9000, xlabel=' ', ylabel=' '
+
+end

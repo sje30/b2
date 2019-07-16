@@ -1,0 +1,92 @@
+Programs for retinal analysis with overview, contours and nearest neighbour
+
+
+----------ASCII NAYBUR----------
+data
+use "Z:\Anatomy\SC\beads\data\todo\gm300-2\R-CONTRA\sys.sys" (xred, yred, xgreen, ygreen, xdouble, ydouble)
+save sysxy
+run
+use sysxy
+export "Z:\Anatomy\SC\beads\data\todo\gm300-2\R-CONTRA\gm300-2.por" / type=portable
+use sysxy
+export "Z:\programs\NAYBUR\data\gm300-2.por" / type=portable
+
+----------RETLOOK----------
+graph
+use 'Z:\Anatomy\SC\beads\data\todo\gm300-2\R-CONTRA\sys.sys'
+
+plot yred*xred/, symbol='.', xmax=4000, xmin=-6000, ymin=-5000, ymax=5000, color=red, axes=2, scale=2, xlabel='', ylabel=''
+plot ygreen*xgreen/, symbol='.', xmax=4000, xmin=-6000, ymin=-5000, ymax=5000, color=green, axes=2, scale=2, xlabel='temporal - nasal', ylabel='dorsal - ventral '
+
+thick=2
+map/xmax=4000, xmin=-6000, ymin=-5000, ymax=5000
+end
+
+
+ 
+
+----------MODIFY RED----------
+data
+use "Z:\Anatomy\SC\beads\data\todo\gm300-2\R-CONTRA\sys.sys"
+
+if case>5 and case<606 then let xred = xred - 930
+if case>5 and case<606 then let xdouble = xdouble - 930
+
+if case>5 and case<606 then let yred = yred - 775
+if case>5 and case<606 then let ydouble = ydouble - 775
+
+save "Z:\Anatomy\SC\beads\data\todo\gm300-2\R-CONTRA\sysmod.sys" / double
+
+run
+use 'Z:\Anatomy\SC\beads\data\todo\gm300-2\R-CONTRA\sysmod.sys'
+graph
+BEGIN
+
+plot ygreen*xgreen / , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=green, axes=2, scale=2,  xlabel=' ', ylabel=' '
+plot yred*xred /  , symbol='.', xmax=8000, xmin=-8000, ymin=-8000, ymax=8000, color=red , axes=2 , scale=0, xlabel=' ', ylabel=' '
+map / , xmax=8000, xmin=-8000, ymin=-8000, ymax=8000
+end
+
+
+
+----------cONTOUR RED----------
+
+graph
+Use 'Z:\Anatomy\SC\beads\data\todo\gm300-2\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=4000, xmin=-6000, ymin=-5000, ymax=5000
+thick=1
+
+
+color graph=brown
+plot totalred*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=33, xmax=4000, xmin=-6000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+color graph=green
+plot totalred*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=33, xmax=4000, xmin=-6000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+plot yred*xred / , symbol='.', colour=red, xmax=4000, xmin=-6000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+end
+
+
+
+----------cONTOUR GREEN----------
+
+graph
+Use 'Z:\Anatomy\SC\beads\data\todo\gm300-2\R-CONTRA\sys.sys'
+BEGIN
+thick=2
+map / , xmax=4000, xmin=-6000, ymin=-5000, ymax=5000
+thick=1
+
+
+color graph=brown
+plot totalgre*ygridcoo*xgridcoo / ,contour, smooth=dwls, ztick=1, zmin=1, zmax=73, xmax=4000, xmin=-6000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+color graph=green
+plot totalgre*ygridcoo*xgridcoo / ,contour , colour , smooth=dwls, ztick=5, zmin=1, zmax=73, xmax=4000, xmin=-6000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+plot ygreen*xgreen / , symbol='.', colour=green, xmax=4000, xmin=-6000, ymin=-5000, ymax=5000, xlabel=' ', ylabel=' '
+
+end

@@ -1,0 +1,226 @@
+[1] "Adding old segment 1"
+[1] "Intersection found. Old points:"
+   X    Y 
+1410  549 
+   X    Y 
+1500  529 
+   X    Y 
+1500  529 
+   X    Y 
+1560  599 
+[1] "Point i+1 has been changed:"
+   X    Y 
+1410  549 
+   X    Y 
+1500  529 
+   X    Y 
+1500  529 
+   X    Y 
+1560  599 
+[1] "a= 0.5"
+[1] "l= 92.1954445729289"
+[1] "New points:"
+   X    Y 
+1410  549 
+   X    Y 
+1500  529 
+   X    Y 
+1530  564 
+   X    Y 
+1560  599 
+[1] "Storing new segment 1"
+[1] "Adding old segment 2"
+[1] "Adding old segment 3"
+[1] "Adding old segment 4"
+[1] "Adding old segment 5"
+[1] "Intersection found. Old points:"
+    X     Y 
+ 1560 -2131 
+    X     Y 
+ 2580 -2601 
+    X     Y 
+ 2500 -2601 
+    X     Y 
+ 3500 -2131 
+[1] "Point i+1 has been changed:"
+    X     Y 
+ 1560 -2131 
+        X         Y 
+ 2539.604 -2582.386 
+    X     Y 
+ 2500 -2601 
+    X     Y 
+ 3500 -2131 
+[1] "a= 0.0471172133385223"
+[1] "l= 1061.18330132909"
+[1] "New points:"
+    X     Y 
+ 1560 -2131 
+        X         Y 
+ 2539.604 -2582.386 
+        X         Y 
+ 3454.749 -2152.268 
+    X     Y 
+ 3500 -2131 
+[1] "Intersection found. Old points:"
+   X    Y 
+2270  949 
+   X    Y 
+1940 1109 
+   X    Y 
+1940 1089 
+   X    Y 
+2500 1069 
+[1] "Point i+1 has been changed:"
+   X    Y 
+2270  949 
+      X       Y 
+1984.53 1087.41 
+   X    Y 
+1940 1089 
+   X    Y 
+2500 1069 
+[1] "a= 0.0969370756717981"
+[1] "l= 515.798518301563"
+[1] "New points:"
+   X    Y 
+2270  949 
+      X       Y 
+1984.53 1087.41 
+       X        Y 
+2450.032 1070.785 
+   X    Y 
+2500 1069 
+[1] "Storing new segment 2"
+Triangulating...
+[1] "Non-adjacent points in rim connected by line: 203 201"
+[1] "In triangle: 312" "In triangle: 316"
+[1] "Other points in triangles: 204 29"
+[1] "Non-adjacent points in rim connected by line: 307 205"
+[1] "In triangle: 515" "In triangle: 516"
+[1] "Other points in triangles: 19 309"
+[1] "Non-adjacent points in rim connected by line: 380 379"
+[1] "In triangle: 99"  "In triangle: 653"
+[1] "Other points in triangles: 23 378"
+[1] "Non-adjacent points in rim connected by line: 415 413"
+[1] "In triangle: 28"  "In triangle: 714"
+[1] "Other points in triangles: 45 416"
+[1] "Non-adjacent points in rim connected by line: 442 438"
+[1] "In triangle: 760" "In triangle: 761"
+[1] "Other points in triangles: 5 443"
+Stitching...
+Tear 1 child of rim
+Tear 2 child of forward side of tear 4
+Tear 2 child of backward side of tear 5
+Tear 3 child of backward side of tear 4
+Tear 3 child of backward side of tear 5
+Tear 4 child of backward side of tear 5
+Tear 5 child of rim
+Tear 6 child of rim
+Tear 7 child of rim
+Tear 8 child of rim
+Tear 9 child of rim
+Tear 10 child of backward side of tear 9
+Tear 1 : Sf = 3391.78127217525 ; Sb = 3859.43893205302
+  Forwards path
+    i = 1 ; sf/Sf = 0.137331531995527 ; sf = 465.798518301564
+      k =   64 ; sb/Sb = 0 ; sb = 0
+      k =   63 ; sb/Sb = 0.0822021772344351 ; sb = 317.254283118102
+      k =   62 ; sb/Sb = 0.194816027043639 ; sb = 751.880559360116
+      Creating new point: f = 0.48954329200622
+    i = 2 ; sf/Sf = 0.152073048616949 ; sf = 515.798518301563
+      k =   64 ; sb/Sb = 0 ; sb = 0
+      k =   63 ; sb/Sb = 0.0822021772344351 ; sb = 317.254283118102
+      k =   62 ; sb/Sb = 0.194816027043639 ; sb = 751.880559360116
+      Creating new point: f = 0.620446521461549
+    i = 65 ; sf/Sf = 0.245701990072936 ; sf = 833.367408465572
+      k =   64 ; sb/Sb = 0 ; sb = 0
+      k =   63 ; sb/Sb = 0.0822021772344351 ; sb = 317.254283118102
+      k =   62 ; sb/Sb = 0.194816027043639 ; sb = 751.880559360116
+      k =   61 ; sb/Sb = 0.335116071780763 ; sb = 1293.36001418735
+      Creating new point: f = 0.362693847494064
+    i = 3 ; sf/Sf = 0.339330931528923 ; sf = 1150.93629862958
+      k =   64 ; sb/Sb = 0 ; sb = 0
+      k =   63 ; sb/Sb = 0.0822021772344351 ; sb = 317.254283118102
+      k =   62 ; sb/Sb = 0.194816027043639 ; sb = 751.880559360116
+      k =   61 ; sb/Sb = 0.335116071780763 ; sb = 1293.36001418735
+      k =  445 ; sb/Sb = 0.435475376580346 ; sb = 1680.69062232464
+      Creating new point: f = 0.0419976977379118
+    i = 388 ; sf/Sf = 0.486775577828674 ; sf = 1651.03628863158
+      k =   64 ; sb/Sb = 0 ; sb = 0
+      k =   63 ; sb/Sb = 0.0822021772344351 ; sb = 317.254283118102
+      k =   62 ; sb/Sb = 0.194816027043639 ; sb = 751.880559360116
+      k =   61 ; sb/Sb = 0.335116071780763 ; sb = 1293.36001418735
+      k =  445 ; sb/Sb = 0.435475376580346 ; sb = 1680.69062232464
+      k =   60 ; sb/Sb = 0.535834681379929 ; sb = 2068.02123046192
+      Creating new point: f = 0.511165370772291
+    i = 4 ; sf/Sf = 0.634220224128425 ; sf = 2151.13627863358
+      k =   64 ; sb/Sb = 0 ; sb = 0
+      k =   63 ; sb/Sb = 0.0822021772344351 ; sb = 317.254283118102
+      k =   62 ; sb/Sb = 0.194816027043639 ; sb = 751.880559360116
+      k =   61 ; sb/Sb = 0.335116071780763 ; sb = 1293.36001418735
+      k =  445 ; sb/Sb = 0.435475376580346 ; sb = 1680.69062232464
+      k =   60 ; sb/Sb = 0.535834681379929 ; sb = 2068.02123046192
+      k =  277 ; sb/Sb = 0.646865037026305 ; sb = 2496.53610768324
+      Creating new point: f = 0.886113911603127
+    i = 339 ; sf/Sf = 0.817110112064213 ; sf = 2771.45877540441
+      k =   64 ; sb/Sb = 0 ; sb = 0
+      k =   63 ; sb/Sb = 0.0822021772344351 ; sb = 317.254283118102
+      k =   62 ; sb/Sb = 0.194816027043639 ; sb = 751.880559360116
+      k =   61 ; sb/Sb = 0.335116071780763 ; sb = 1293.36001418735
+      k =  445 ; sb/Sb = 0.435475376580346 ; sb = 1680.69062232464
+      k =   60 ; sb/Sb = 0.535834681379929 ; sb = 2068.02123046192
+      k =  277 ; sb/Sb = 0.646865037026305 ; sb = 2496.53610768324
+      k =   59 ; sb/Sb = 0.75789539267268 ; sb = 2925.05098490456
+      k =  290 ; sb/Sb = 0.819128657435395 ; sb = 3161.37703086649
+      Creating new point: f = 0.967035150273237
+    i = 438 ; sf/Sf = 0.908555056032106 ; sf = 3081.62002378983
+      k =   64 ; sb/Sb = 0 ; sb = 0
+      k =   63 ; sb/Sb = 0.0822021772344351 ; sb = 317.254283118102
+      k =   62 ; sb/Sb = 0.194816027043639 ; sb = 751.880559360116
+      k =   61 ; sb/Sb = 0.335116071780763 ; sb = 1293.36001418735
+      k =  445 ; sb/Sb = 0.435475376580346 ; sb = 1680.69062232464
+      k =   60 ; sb/Sb = 0.535834681379929 ; sb = 2068.02123046192
+      k =  277 ; sb/Sb = 0.646865037026305 ; sb = 2496.53610768324
+      k =   59 ; sb/Sb = 0.75789539267268 ; sb = 2925.05098490456
+      k =  290 ; sb/Sb = 0.819128657435395 ; sb = 3161.37703086649
+      k =   58 ; sb/Sb = 0.880361922198109 ; sb = 3397.70307682842
+      k =   57 ; sb/Sb = 1 ; sb = 3859.43893205302
+      Creating new point: f = 0.235653517274679
+Tear 2 : Sf = 1166.19037896906 ; Sb = 1376.2685613052
+  Forwards path
+    i = 262 ; sf/Sf = 0.5 ; sf = 583.09518948453
+      k =   18 ; sb/Sb = 0 ; sb = 0
+      k =   82 ; sb/Sb = 0.262433246186076 ; sb = 361.178626167164
+      k =   17 ; sb/Sb = 0.524866492372152 ; sb = 722.357252334328
+      Creating new point: f = 0.905246409387779
+    i = 307 ; sf/Sf = 0.75 ; sf = 874.642784226795
+      k =   18 ; sb/Sb = 0 ; sb = 0
+      k =   82 ; sb/Sb = 0.262433246186076 ; sb = 361.178626167164
+      k =   17 ; sb/Sb = 0.524866492372152 ; sb = 722.357252334328
+      k =   83 ; sb/Sb = 0.762433246186076 ; sb = 1049.31290681976
+      Creating new point: f = 0.947664199697681
+Tear 3 : Sf = 1713.68465714162 ; Sb = 1724.70983603873
+  Forwards path
+    i = 208 ; sf/Sf = 0.301554200742 ; sf = 516.768807108169
+      k =   14 ; sb/Sb = 0 ; sb = 0
+      k =  116 ; sb/Sb = 0.167900379747192 ; sb = 289.579436424619
+      k =   97 ; sb/Sb = 0.335800759494383 ; sb = 579.158872849238
+      Creating new point: f = 0.796030486625771
+    i = 15 ; sf/Sf = 0.603108401484001 ; sf = 1033.53761421634
+      k =   14 ; sb/Sb = 0 ; sb = 0
+      k =  116 ; sb/Sb = 0.167900379747192 ; sb = 289.579436424619
+      k =   97 ; sb/Sb = 0.335800759494383 ; sb = 579.158872849238
+      k =   13 ; sb/Sb = 0.671601518988767 ; sb = 1158.31774569848
+      Creating new point: f = 0.796030486625771
+    i = 99 ; sf/Sf = 0.801554200742 ; sf = 1373.61113567898
+      k =   14 ; sb/Sb = 0 ; sb = 0
+      k =  116 ; sb/Sb = 0.167900379747192 ; sb = 289.579436424619
+      k =   97 ; sb/Sb = 0.335800759494383 ; sb = 579.158872849238
+      k =   13 ; sb/Sb = 0.671601518988767 ; sb = 1158.31774569848
+      k =  111 ; sb/Sb = 0.835800759494383 ; sb = 1441.5137908686
+      Creating new point: f = 0.791432904032152
+Tear 4 : Sf = 880.90862182181 ; Sb = 0
+  Forwards path
+    i = 205 ; sf/Sf = 0.5 ; sf = 440.454310910905
+      k =   16 ; sb/Sb = NaN ; sb = 0
