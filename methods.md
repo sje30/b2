@@ -111,32 +111,25 @@ plot(nn_wt$Separation[wt_p0], nn_wt$NN.norm[wt_p0],
 title("Figure 3A WT AP data")
 
 points(nn_wt$Separation[wt_p2], nn_wt$NN.norm[wt_p2],
-       pch=19,
-       col=p2_col)
+       pch=19, col=p2_col)
 
 points(nn_wt$Separation[wt_p4], nn_wt$NN.norm[wt_p4],
-       pch=19,
-       col=p4_col)
+       pch=19, col=p4_col)
 
 points(nn_wt$Separation[wt_p6], nn_wt$NN.norm[wt_p6],
-       pch=19,
-       col=p6_col)
+       pch=19, col=p6_col)
 
 points(nn_wt$Separation[wt_p8], nn_wt$NN.norm[wt_p8],
-       pch=19,
-       col=p8_col)
+       pch=19, col=p8_col)
 
 points(nn_wt$Separation[wt_p12], nn_wt$NN.norm[wt_p12],
-       pch=19,
-       col=p12_col)
+       pch=19, col=p12_col)
 
 points(nn_wt$Separation[wt_p22], nn_wt$NN.norm[wt_p22],
-       pch=19,
-       col=p22_col)
+       pch=19, col=p22_col)
 
 points(nn_wt$Separation[wt_p60], nn_wt$NN.norm[wt_p60],
-       pch=19,
-       col=p60_col)
+       pch=19, col=p60_col)
 title(sub="one data point below 0.4 missing in paper")
 ```
 
@@ -154,8 +147,7 @@ plot(nn_b2$Separation[b2_p0], nn_b2$NN.norm[b2_p0],
      xlim=c(0,2000), ylim=c(0.4,1.0))
 title("Figure 5D B2 AP data")
 points(nn_b2$Separation[b2_p60], nn_b2$NN.norm[b2_p60],
-       pch=19,
-       col=p60_col)
+       pch=19, col=p60_col)
 abline(h=0.4, lty=2)
 title(sub="3 P0 datapoints missing from paper; under 0.4 line")
 ```
@@ -174,11 +166,9 @@ plot(nn_b2$Separation[b2_p0], nn_b2$NN.norm[b2_p0],
      xlim=c(0,2000), ylim=c(0.4,1.0))
 title("Figure 6E B2 P0 P2 P4")
 points(nn_b2$Separation[b2_p2], nn_b2$NN.norm[b2_p2],
-       pch=19,
-       col=p2_col)
+       pch=19, col=p2_col)
 points(nn_b2$Separation[b2_p4], nn_b2$NN.norm[b2_p4],
-       pch=19,
-       col=p4_col)
+       pch=19, col=p4_col)
 abline(h=0.4, lty=2)
 title(sub="4 datapoints missing from paper; under 0.4 line")
 ```
@@ -212,8 +202,7 @@ points(nn_b2$Separation[b2_p22], nn_b2$NN.norm[b2_p22],
        pch=19,
        col=p22_col)
 points(nn_b2$Separation[b2_p60], nn_b2$NN.norm[b2_p60],
-       pch=19,
-       col=p60_col)
+       pch=19, col=p60_col)
 abline(h=0.4, lty=2)
 ```
 
@@ -253,19 +242,7 @@ get_data = function(dat) {
 }
 
 cont_wt_p0 = read_excel("data/CONTOUR-WT.xlsx",col_names = FALSE,sheet="P0")
-```
 
-```
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-```
-
-```r
 ages = c("P0", "P2", "P4", "P6", "P8", "P12", "P22", "P60")
 
 colors = c(
@@ -301,65 +278,6 @@ show_phenotype <- function(cond) {
 show_phenotype("WT")
 ```
 
-```
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-```
-
 ![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
 
 ### Raw data for knockout
@@ -369,64 +287,5 @@ show_phenotype("WT")
 show_phenotype("B2KO")
 ```
 
-```
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-## New names:
-## * `` -> ...1
-## * `` -> ...2
-## * `` -> ...3
-## * `` -> ...4
-## * `` -> ...5
-## * … and 10 more problems
-```
-
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
+![plot of chunk b2res](figure/b2res-1.png)
 
