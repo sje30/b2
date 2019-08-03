@@ -247,7 +247,7 @@ show_phenotype("WT")
 
 ### Raw data for knockout
 
-```{r b2res, results="hide", warning=FALSE, message=FALSE}
+```{r b2res, results="hide", fig.width=10, fig.height=6, warning=FALSE, message=FALSE}
 show_phenotype("B2KO")
 ```
 

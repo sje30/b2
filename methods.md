@@ -17,7 +17,11 @@ require(knitr)
 ## Separation in retina data
 
 The data regarding separation in retina (AP injections) is contained
-in the two data files `data/NN-C57BL6J.csv` and `data/NN-N2KO.csv`:
+in the two data files 
+[data/NN-C57BL6J.csv](data/NN-C57BL6J.csv)
+and
+[data/NN-N2KO.csv](data/NN-N2KO.csv).
+
 
 
 ```r
