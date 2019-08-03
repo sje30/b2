@@ -54,3 +54,20 @@ the following form:
 ```
 
 
+## Analysis files
+
+The raw data above has been processed to provide summary data files
+which are then plotted to make the figures in the manuscript.  In
+particular the four key summary data files are:
+
+1. [data/NN-C57BL6J.csv](data/NN-C57BL6J.csv)
+2. [data/NN-N2KO.csv](data/NN-N2KO.csv)
+3. [data/CONTOUR-WT.xlsx](data/CONTOUR-WT.xlsx)
+4. [data/CONTOUR-B2.xlsx](data/CONTOUR-B2.xlsx)
+
+The first two contain the "separation in retina" data and the last two
+summarise the contour analysis.  These are analysed in detailed in the
+accompanying Rmarkdown script [methods.Rmd](methods.Rmd).  Please view
+the [methods.md](methods.md) file for the output from this analysis,
+which shows the key N and data figures.
+
