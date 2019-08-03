@@ -241,7 +241,7 @@ show_phenotype <- function(cond) {
 
 ### Raw data for wild type
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, fig.width=10, fig.height=6}
 show_phenotype("WT")
 ```
 
