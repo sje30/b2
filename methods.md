@@ -224,8 +224,9 @@ abline(h=0.4, lty=2)
 ## Convergence data
 
 
-Convergence data are stored in <data/CONTOUR-WT.xlsx> and
-<data/CONTOUR-B2.xlsx>
+Convergence data are stored in
+[data/CONTOUR-WT.xlsx](data/CONTOUR-WT.xlsx) and
+[data/CONTOUR-B2.xlsx](data/CONTOUR-B2.xlsx).
 
 
 Set up to read the data:
@@ -233,26 +234,6 @@ Set up to read the data:
 ```r
 library(readxl)
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 get_data = function(dat) {
   f = function(x) {
     x = as.numeric(x)
