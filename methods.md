@@ -220,3 +220,232 @@ abline(h=0.4, lty=2)
 ![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
 
 <!-- knit("methods.Rmd") -->
+
+## Convergence data
+
+
+Convergence data are stored in <data/CONTOUR-WT.xlsx> and
+<data/CONTOUR-B2.xlsx>
+
+
+Set up to read the data:
+
+```r
+library(readxl)
+library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
+get_data = function(dat) {
+  f = function(x) {
+    x = as.numeric(x)
+    valid = is.finite(x)
+    x[valid]
+  }
+  j = dat %>% pull(10) %>% f
+  k = dat %>% pull(11) %>% f
+  l = dat %>% pull(12) %>% f
+  m = dat %>% pull(13) %>% f
+  n = dat %>% pull(14) %>% f
+  o = dat %>% pull(15) %>% f
+  
+  res = list("1%"=j, "5%"=k, "25%"=l, "50%"=m, "75%"=n, "95%"=o)
+
+  res
+}
+
+cont_wt_p0 = read_excel("data/CONTOUR-WT.xlsx",col_names = FALSE,sheet="P0")
+```
+
+```
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+```
+
+```r
+ages = c("P0", "P2", "P4", "P6", "P8", "P12", "P22", "P60")
+
+colors = c(
+  P0 = "DeepPink",
+  P2 = "Purple",
+  P4 = "MediumBlue",
+  P6 = "blue",
+  P8 = "DeepSkyBlue",
+  P12 = "DarkGreen",
+  P22 = "LightGreen",
+  P60 = "orange")
+
+show_phenotype <- function(cond) {
+  par(mfrow=c(2,4))
+  file = sprintf("data/CONTOUR-%s.xlsx", cond)
+  for (age in ages) {
+    cont_wt = read_excel(file,col_names = FALSE,
+                         sheet=age)
+    l = get_data(cont_wt)
+    stripchart(l, method="jitter",vertical=TRUE, pch=20,
+               ylim=c(0,1),
+               xlab="Contour", ylab="Retinal Coverage",
+               col=colors[age],
+               main=paste(cond, age))
+  }
+}
+```
+
+### Raw data for wild type
+
+
+```r
+show_phenotype("WT")
+```
+
+```
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+```
+
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
+
+### Raw data for knockout
+
+
+```r
+show_phenotype("B2KO")
+```
+
+```
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+## New names:
+## * `` -> ...1
+## * `` -> ...2
+## * `` -> ...3
+## * `` -> ...4
+## * `` -> ...5
+## * … and 10 more problems
+```
+
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
+
